@@ -54,6 +54,13 @@ app.use("/api", CategoryRouter);
 app.use("/api" , NewsRouter);
 app.use("/api", authRouter)
 
+
+
+app.get('/',(req,res)=>{
+  return res.status(200).json({
+    message : " trang chur"
+  })
+})
 // start lắng nghe cổng 4000 
 app.listen(port, () => {
   console.log("kết nối thành công tới : " + port);
