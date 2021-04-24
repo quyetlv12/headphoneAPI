@@ -17,8 +17,8 @@ dotenv.config();
 // const authRouter = require('./routes/authRouter')
 
 
-// //start kết nối tới mongodb
-// mongodb.connect()
+//start kết nối tới mongodb
+mongodb.connect()
 //start gán express == app
 const app = express();
 
@@ -35,23 +35,7 @@ app.use(cors())
 // app.use(expressValidator())
 
 
-const mongoose = require('mongoose'); 
-const MONGO_URL = "mongodb://localhost:27017/quyet_buy"
 
-//start tạo ra hàm connect
-const connect = () =>
-    mongoose.connect(MONGO_URL,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-      })
-    
-    .then((data) =>
-    console.log({ connect: "kết nối thành công đến database !"})
-  )
-  .catch((err) => console.log("error"));
 
 
 
@@ -72,7 +56,7 @@ app.use("/api", authRouter)
 
 
 
-app.get('/api/',(req,res)=>{
+app.get('/',(req,res)=>{
   return res.status(200).json({
     message : " trang chur"
   })
