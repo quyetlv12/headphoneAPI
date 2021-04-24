@@ -10,7 +10,7 @@ import {requireSignin, isAdmin, isAuth,checkAdmin} from '../controller/authContr
 
 
  //start thiết lập các phương thức cho api 
- router.get('/ ', showList)
+ router.get('/products', showList)
  //start chi tiết sản phẩm
  router.get('/products/:productID' , showDetailProduct)
  //start thêm sản phẩm
