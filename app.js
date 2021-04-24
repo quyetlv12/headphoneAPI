@@ -43,7 +43,7 @@ app.use(cors())
 app.use(bodyParser.json())
 //start thiết lập môi trường cho cổng API
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 
 
