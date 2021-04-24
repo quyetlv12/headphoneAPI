@@ -32,7 +32,7 @@ app.use(morgan("dev"));
 app.use(cors())
 
 
-app.use(expressValidator())
+// app.use(expressValidator())
 
 
 
