@@ -8,7 +8,8 @@ import dotenv from "dotenv";
 import CategoryRouter from './routes/cateRouter';
 import bodyParser from 'body-parser';
 import cors from 'cors'
-import mongodb from "./config/db";
+const mongoose = require('mongoose'); 
+// import mongodb from "./config/db";
 import authRouter from './routes/authRouter'
 import expressValidator from 'express-validator'
 
@@ -17,10 +18,29 @@ dotenv.config();
 // const authRouter = require('./routes/authRouter')
 
 
-//start kết nối tới mongodb
-mongodb.connect()
+// //start kết nối tới mongodb
+// mongodb.connect()
 //start gán express == app
 const app = express();
+
+
+
+const MONGO_URL = "mongodb://localhost:27017/quyet_buy"
+
+//start tạo ra hàm connect
+const connect = () =>
+    mongoose.connect(MONGO_URL,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      })
+    
+    .then((data) =>
+    console.log({ connect: "kết nối thành công đến database !"})
+  )
+  .catch((err) => console.log("error"));
 
 
 
