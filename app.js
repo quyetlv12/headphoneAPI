@@ -24,8 +24,7 @@ const app = express();
 //start tạo ra hàm connect
 const connect = () =>
   mongoose
-    .connect(
-      `mongodb+srv://quyetfox:cQZIb0P6VQL7Irvo@cluster0.cyjlp.mongodb.net/headphoneapi?retryWrites=true&w=majority`,
+    .connect(process.env.MONGODB || "mongodb://localhost:27017/quyet_buy",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
