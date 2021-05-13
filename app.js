@@ -1,17 +1,16 @@
 //start import
-import express from "express";
-import productRouter from "./routes/productsRouter";
-import userRouter from "./routes/userRouter";
-import NewsRouter from "./routes/newsRouter";
-import morgan from "morgan";
-import dotenv from "dotenv";
-import CategoryRouter from "./routes/cateRouter";
 import bodyParser from "body-parser";
 import cors from "cors";
-const mongoose = require("mongoose");
+import dotenv from "dotenv";
+import express from "express";
+import morgan from "morgan";
 // import mongodb from "./config/db";
 import authRouter from "./routes/authRouter";
-import expressValidator from "express-validator";
+import CategoryRouter from "./routes/cateRouter";
+import NewsRouter from "./routes/newsRouter";
+import productRouter from "./routes/productsRouter";
+import userRouter from "./routes/userRouter";
+const mongoose = require("mongoose");
 
 //start yêu cầu hình env trong file app
 dotenv.config();
@@ -25,20 +24,22 @@ const app = express();
 //start tạo ra hàm connect
 const connect = () =>
   mongoose
-    .connect(process.env.MONGODB_URL || "mongodb://localhost:27017/quyet_buy", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    })
+    .connect(
+      `mongodb+srv://quyetfox:cQZIb0P6VQL7Irvo@cluster0.cyjlp.mongodb.net/headphoneapi?retryWrites=true&w=majority`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      }
+    )
 
     .then((data) =>
       console.log({ connect: "kết nối thành công đến database !" })
     )
     .catch((err) => console.log("error"));
 
-
-connect()
+connect();
 //start sử dụng morgan làm midDleware cho app
 app.use(morgan("dev"));
 
