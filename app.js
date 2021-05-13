@@ -23,10 +23,9 @@ dotenv.config();
 const app = express();
 
 //start tạo ra hàm connect
-const MONGO_URL = process.env.DB || "mongodb://localhost:27017/quyet_buy";
 const connect = () =>
   mongoose
-    .connect(MONGO_URL, {
+    .connect(process.env.MONGODB||"mongodb://localhost:27017/quyet_buy", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
