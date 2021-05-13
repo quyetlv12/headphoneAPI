@@ -25,7 +25,7 @@ const app = express();
 //start tạo ra hàm connect
 const connect = () =>
   mongoose
-    .connect(process.env.MONGODB||"mongodb://localhost:27017/quyet_buy", {
+    .connect(process.env.MONGODB, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
