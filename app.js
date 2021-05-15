@@ -51,7 +51,7 @@ app.use(cors());
 app.use(bodyParser.json());
 //start thiết lập môi trường cho cổng API
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 6789;
 
 // start sử dụng router từ file routes
 app.use("/api", productRouter);
@@ -61,9 +61,7 @@ app.use("/api", NewsRouter);
 app.use("/api", authRouter);
 
 app.get("/", (req, res) => {
-  return res.status(200).json({
-    message: " trang chur",
-  });
+  return res.send(/*html*/"<h1>CHÀO MỪNG ĐẾN VỚI HEADPHONE API</h1>")
 });
 // start lắng nghe cổng 4000
 app.listen(port, () => {
