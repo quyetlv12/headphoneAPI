@@ -24,12 +24,14 @@ const app = express();
 //start tạo ra hàm connect
 const connect = () =>
   mongoose
-    .connect(process.env.MONGODB || "mongodb://localhost:27017/quyet_buy", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    })
+    .connect(process.env.MONGODB || "mongodb://localhost:27017/quyet_buy",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+        useCreateIndex: true,
+      }
+    )
 
     .then((data) =>
       console.log({ connect: "kết nối thành công đến database !" })
@@ -59,13 +61,9 @@ app.use("/api", NewsRouter);
 app.use("/api", authRouter);
 
 app.get("/", (req, res) => {
-  return res.send(/*html*/ `<div>
-  <h1>CHÀO MỪNG BẠN ĐẾN VỚI HEADPHONE API</h1>
-  <p>products <a href="https://headphoneapi.herokuapp.com/api/products" target="_blank" rel="noopener noreferrer">Products</a></p>
-  <p>products <a href="https://headphoneapi.herokuapp.com/api/categories" target="_blank" rel="noopener noreferrer">categories</a></p>
-  <p>products <a href="https://headphoneapi.herokuapp.com/api/users" target="_blank" rel="noopener noreferrer">users</a></p>
-  <p>products <a href="https://headphoneapi.herokuapp.com/api/news" target="_blank" rel="noopener noreferrer">news</a></p>
-  </div>`);
+  return res.status(200).json({
+    message: " trang chur",
+  });
 });
 // start lắng nghe cổng 4000
 app.listen(port, () => {
