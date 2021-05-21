@@ -14,11 +14,14 @@ import {requireSignin, isAdmin, isAuth,checkAdmin} from '../controller/authContr
  //start chi tiết sản phẩm
  router.get('/products/:productID' , showDetailProduct)
  //start thêm sản phẩm
- router.post('/products',requireSignin,checkAdmin, addProducts)
+//  router.post('/products',requireSignin,checkAdmin, addProducts)
+ router.post('/products',addProducts)
  //start xoá sản phẩm theo id
- router.delete('/products/:productID' ,requireSignin, checkAdmin, deleteProducts);
+//  router.delete('/products/:productID' ,requireSignin, checkAdmin, deleteProducts);
+ router.delete('/products/:productID' , deleteProducts);
  //start sửa sản phẩm
-router.put('/products/:productID',requireSignin, checkAdmin, update)
+// router.put('/products/:productID',requireSignin, checkAdmin, update)
+router.put('/products/:productID', update)
 //start router image
 router.get("/products/image/:productID" , photo)
 
