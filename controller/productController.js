@@ -8,7 +8,34 @@ import _ from "lodash";
 
 //add products
 export const addProducts = (req, res, next) => {
-  const product = new Products(req.body);
+ let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      return res.status(400).json({
+        message: "Thêm sản phẩm không thành công",
+      });
+    }
+    const { name, price } = fields;
+    if (!name || !price) {
+      res.status(400).json({
+        error: "vui lòng nhập đủ trường",
+      });
+    }
+    console.log(fields);
+    console.log(files);
+    let product = new Products(fields);
+    const sizeImage = (form.maxFieldsSize = 2 * 1024 * 1024);
+    if (files.image) {
+      if (files.image.size > sizeImage) {
+        res.status(400).json({
+          error: "kích thước file vượt quá 1 MB ",
+        });
+      }
+      product.image.data = fs.readFileSync(files.image.path);
+      product.image.contentType = files.image.path;
+    }
+  });
   product.save((err, db) => {
     if (err) {
       res.status(400).json({
