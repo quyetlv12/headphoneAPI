@@ -8,7 +8,7 @@ import _ from "lodash";
 
 //add products
 export const addProducts = (req, res, next) => {
- let form = new formidable.IncomingForm();
+  let form = new formidable.IncomingForm();
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
     if (err) {
@@ -25,7 +25,7 @@ export const addProducts = (req, res, next) => {
     console.log(fields);
     console.log(files);
     let product = new Products(fields);
-    const sizeImage = (form.maxFieldsSize = 2 * 1024 * 1024);
+    const sizeImage = (form.maxFieldsSize = 1 * 1024 * 1024);
     if (files.image) {
       if (files.image.size > sizeImage) {
         res.status(400).json({
@@ -35,17 +35,17 @@ export const addProducts = (req, res, next) => {
       product.image.data = fs.readFileSync(files.image.path);
       product.image.contentType = files.image.path;
     }
-  });
-  product.save((err, db) => {
-    if (err) {
-      res.status(400).json({
-        error: "lỗi",
-      });
-    } else {
-      res.json({
-        message: "Thêm sản phẩm thành công",
-      });
-    }
+    product.save((err, db) => {
+      if (err) {
+        res.status.json({
+          error: "lỗi",
+        });
+      } else {
+        res.json({
+          message: "Thêm sản phẩm thành công",
+        });
+      }
+    });
   });
 };
 
