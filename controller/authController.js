@@ -41,9 +41,9 @@ export const signin = (req, res) => {
       const token = jwt.sign({_id :user._id,role :user.role} , process.env.JWT_SECRET);
       res.cookie("tokenAccess", token, { expire: new Date() + 9999 });
       const { _id, name, email, role } = user;
-      return res.json([
+      return res.json(
         {token,id:_id,name  : name,email:email,role:role}
-      ]);
+      );
     });
   }
   else{

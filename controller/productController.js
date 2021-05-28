@@ -8,44 +8,48 @@ import _ from "lodash";
 
 //add products
 export const addProducts = (req, res, next) => {
-  let form = new formidable.IncomingForm();
-  form.keepExtensions = true;
-  form.parse(req, (err, fields, files) => {
+  // let form = new formidable.IncomingForm();
+  // form.keepExtensions = true;
+  // form.parse(req, (err, fields, files) => {
+  //   if (err) {
+  //     return res.status(400).json({
+  //       message: "Thêm sản phẩm không thành công",
+  //     });
+  //   }
+  //   const { name, price } = fields;
+  //   if (!name || !price) {
+  //     res.status(400).json({
+  //       error: "vui lòng nhập đủ trường",
+  //     });
+  //   }
+  //   console.log(fields);
+  //   console.log(files);
+  //   let product = new Products(fields);
+  //   const sizeImage = (form.maxFieldsSize = 1 * 1024 * 1024 * 1024);
+  //   if (files.image) {
+  //     if (files.image.size > sizeImage) {
+  //       res.status(400).json({
+  //         error: "kích thước file vượt quá 1 MB ",
+  //       });
+  //     }
+  //     product.image.data = fs.readFileSync(files.image.path);
+  //     product.image.contentType = files.image.path;
+  //   }
+    
+  // });
+
+
+
+  product.save((err, db) => {
     if (err) {
-      return res.status(400).json({
-        message: "Thêm sản phẩm không thành công",
+      res.status.json({
+        error: "lỗi",
+      });
+    } else {
+      res.json({
+        message: "Thêm sản phẩm thành công",
       });
     }
-    const { name, price } = fields;
-    if (!name || !price) {
-      res.status(400).json({
-        error: "vui lòng nhập đủ trường",
-      });
-    }
-    console.log(fields);
-    console.log(files);
-    let product = new Products(fields);
-    const sizeImage = (form.maxFieldsSize = 1 * 1024 * 1024);
-    if (files.image) {
-      if (files.image.size > sizeImage) {
-        res.status(400).json({
-          error: "kích thước file vượt quá 1 MB ",
-        });
-      }
-      product.image.data = fs.readFileSync(files.image.path);
-      product.image.contentType = files.image.path;
-    }
-    product.save((err, db) => {
-      if (err) {
-        res.status.json({
-          error: "lỗi",
-        });
-      } else {
-        res.json({
-          message: "Thêm sản phẩm thành công",
-        });
-      }
-    });
   });
 };
 
@@ -167,6 +171,7 @@ export const showList = async (req, res, next) => {
       },
     };
     Products.paginate({}, options, function (err, db) {
+      
       if (err) throw err;
       else res.json(db.products);
       console.log(`page : ${page} , limit : ${limit}`);
@@ -196,6 +201,7 @@ export const showList = async (req, res, next) => {
 };
 
 export const photo = (req, res, next) => {
+  console.log(req.product.image);
   if (req.product.image.data) {
     res.set("Content-Type", req.product.image.contentType);
     return res.send(req.product.image.data);

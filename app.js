@@ -24,14 +24,12 @@ const app = express();
 //start tạo ra hàm connect
 const connect = () =>
   mongoose
-    .connect(process.env.MONGODB_URL || "mongodb://localhost:27017/quyet_buy",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-      }
-    )
+    .connect(process.env.MONGODB_URL || "mongodb://localhost:27017/quyet_buy", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    })
 
     .then((data) =>
       console.log({ connect: "kết nối thành công đến database !" })
@@ -44,7 +42,6 @@ app.use(morgan("dev"));
 
 //start cors
 app.use(cors());
-
 // app.use(expressValidator())
 
 //Start sử dụng bodyParser để lấy dữ liệu từ client lên server
@@ -61,7 +58,7 @@ app.use("/api", NewsRouter);
 app.use("/api", authRouter);
 
 app.get("/", (req, res) => {
-  return res.send(/*html*/"<h1>CHÀO MỪNG ĐẾN VỚI HEADPHONE API</h1>")
+  return res.send(/*html*/ "<h1>CHÀO MỪNG ĐẾN VỚI HEADPHONE API</h1>");
 });
 // start lắng nghe cổng 4000
 app.listen(port, () => {

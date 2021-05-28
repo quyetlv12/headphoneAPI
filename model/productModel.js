@@ -11,9 +11,9 @@ const Products = new Schema({
         // required : true
     } ,
     image : {
-        data: Buffer,
-        contentType: String
-        // type : String,
+        // data: Buffer,
+        // contentType: String
+        type : String,
     },
     cateID : {
       type : ObjectId,
