@@ -12,7 +12,7 @@ export const signup = (req, res) => {
   user.save((err, db) => {
     if (err) {
       res.status(400).json({
-        error: "signup error",
+        error: "Thông tin tài khoản đã tồn tại ",
       });
     }
     user.salt = undefined;
