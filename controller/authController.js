@@ -30,12 +30,12 @@ export const signin = (req, res) => {
     User.findOne({ email : _email }, (error, user) => {
       if (error || !user) {
         return res.status(400).json({
-          error: "User with that email does not exist. Please signup",
+          error: "Tài khoản không tồn tại ! Vui lòng đăng kí ",
         });
       }
       if (!user.authenticate(_password)) {
         return res.status(401).json({
-          error: "Email and password not match",
+          error: "Email hoặc mật khẩu không chính xác",
         });
       }
       const token = jwt.sign({_id :user._id,role :user.role} , process.env.JWT_SECRET);
