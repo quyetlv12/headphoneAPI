@@ -2,7 +2,7 @@
 import express from 'express';
 
 //start lấy phương thức trong products controller
-import {showList,addProducts,deleteProducts,productID,showDetailProduct,update , photo} from '../controller/productController'
+import {showList,addProducts,deleteProducts,productID,showDetailProduct,update , photo, listRelated} from '../controller/productController'
 import {requireSignin, isAdmin, isAuth,checkAdmin} from '../controller/authController'
 
 //start gán phương thức Router trong express == router
@@ -22,6 +22,8 @@ import {requireSignin, isAdmin, isAuth,checkAdmin} from '../controller/authContr
  //start sửa sản phẩm
 // router.put('/products/:productID',requireSignin, checkAdmin, update)
 router.put('/products/:productID', update)
+//start tìm sản phẩm cùng danh mục
+router.get('/products/related/:productID', listRelated)
 //start router image
 router.get("/products/image/:productID" , photo)
 

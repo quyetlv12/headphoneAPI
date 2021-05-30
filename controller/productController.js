@@ -169,6 +169,26 @@ export const showList = async (req, res, next) => {
   }
 };
 
+
+//trả về sản phẩm có cùng danh mục
+
+export const listRelated = (req, res) => {
+  console.log(req.product);
+  Products.find({
+    _id: { $ne: req.product },
+    cateID: req.product.cateID,
+  })
+    // .limit(limit)
+    .populate("category", "_id name")
+    .exec((err, products) => {
+      if (err) {
+        res.status(400).json({
+          error: "Products not found",
+        });
+      }
+      res.json(products);
+    });
+};
 export const photo = (req, res, next) => {
   console.log(req.product.image);
   if (req.product.image.data) {
