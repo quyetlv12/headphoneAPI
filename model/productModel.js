@@ -36,6 +36,10 @@ const Products = new Schema({
         type : Number,
         default : 1,
     },
+    description : {
+        type : String,
+    }
+    ,
     date: { 
         type: Date, 
         default: Date.now 
