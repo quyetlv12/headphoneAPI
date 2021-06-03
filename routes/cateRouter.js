@@ -7,7 +7,7 @@ const CategoryRouter = express.Router();
 
 
 CategoryRouter.get('/categories' ,showListCate);
-CategoryRouter.post('/categories' ,requireSignin,isAdmin,addCategories)
+CategoryRouter.post('/categories' ,requireSignin,addCategories)
 CategoryRouter.get('/categories/:categoryId' , cateDetail)
 CategoryRouter.put('/categories/:categoryId' ,requireSignin,isAdmin , updateCategories)
 CategoryRouter.delete('/categories/:categoryId' ,requireSignin,isAdmin , deleteCategories)
