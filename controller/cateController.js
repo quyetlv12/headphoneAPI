@@ -36,8 +36,7 @@ export const cateDetail = (req,res) =>{
 
 
 export const updateCategories = (req,res,next ) =>{
-  const category = req.category
-  category.name = req.body.name
+  const category = new Categories(req.body)
   category.save((err,db)=>{
     if(err){
       res.status(400).jsom({
