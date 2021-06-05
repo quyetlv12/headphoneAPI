@@ -36,14 +36,15 @@ export const cateDetail = (req,res) =>{
 
 
 export const updateCategories = (req,res,next ) =>{
-  const category = new Categories(req.body)
+  const category = req.category
+  category.name = req.body.name
   category.save((err,db)=>{
     if(err){
       res.status(400).jsom({
         error : "update category error"
       })
     }
-    res.json(db)
+    res.status(200).json(db)
   })
 }
 
