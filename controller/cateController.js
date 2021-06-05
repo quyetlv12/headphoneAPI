@@ -1,5 +1,6 @@
 //start import model user
 import Categories from "../model/categoryModel";
+import _ from "lodash"
 
 //start hiển thị danh sách danh mục
 export const showListCate = (req, res, next) => {
@@ -36,7 +37,7 @@ export const cateDetail = (req,res) =>{
 
 
 export const updateCategories = (req,res,next ) =>{
-  const category = new Categories(req.body)
+  const category = _.assignIn(req.category, req.body);
   category.save((err,db)=>{
     if(err){
       res.status(400).jsom({
