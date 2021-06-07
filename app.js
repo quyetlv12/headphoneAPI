@@ -10,6 +10,7 @@ import CategoryRouter from "./routes/cateRouter";
 import NewsRouter from "./routes/newsRouter";
 import productRouter from "./routes/productsRouter";
 import userRouter from "./routes/userRouter";
+import ContactRouter from './routes/ContactRouter'
 const mongoose = require("mongoose");
 
 //start yêu cầu hình env trong file app
@@ -56,7 +57,7 @@ app.use("/api", userRouter);
 app.use("/api", CategoryRouter);
 app.use("/api", NewsRouter);
 app.use("/api", authRouter);
-
+app.use("/api", ContactRouter);
 app.get("/", (req, res) => {
   return res.send(/*html*/ "<h1>CHÀO MỪNG ĐẾN VỚI HEADPHONE API</h1>");
 });
