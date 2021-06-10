@@ -9,43 +9,43 @@ const Login = {
     <head>
     <title>Login</title>
     </head>
-    <div class="container mb-5">
-    <div class="row form-login ">
-    <div class="text-center">
-      <h2 class="title-login text-white">LOGIN</h2>
+    <div className="container mb-5">
+    <div className="row form-login ">
+    <div className="text-center">
+      <h2 className="title-login text-white">LOGIN</h2>
     </div>
     <div class ='text-danger text-center'>
-    <span class="errorLogin"></span>
+    <span className="errorLogin"></span>
     </div>
 
-    <div class="col-12">
+    <div className="col-12">
     <form>
-      <div class="container">
-        <div class="mb-3">
-          <label for="" class="form-label text-white">User name</label>
-          <input type="text" class="form-control" id="form-login-email">
+      <div className="container">
+        <div className="mb-3">
+          <label for="" className="form-label text-white">User name</label>
+          <input type="text" className="form-control" id="form-login-email">
         
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label text-white">Password</label>
-          <input type="password" class="form-control" id="form-login-password">
+        <div className="mb-3">
+          <label for="exampleInputPassword1" className="form-label text-white">Password</label>
+          <input type="password" className="form-control" id="form-login-password">
         </div>
         
-        <div class="">
-        <button type="submit" class="btn btn-primary mb-3 w-100" id="btn-login">Sign In</button></div>
-        <div class="text-center">
+        <div className="">
+        <button type="submit" className="btn btn-primary mb-3 w-100" id="btn-login">Sign In</button></div>
+        <div className="text-center">
         <a href="http://localhost:6868/#/registration">Bạn chưa có tài khoản ?</a>
         </div>
         <div>
-        <div class="row text-center mt-3 mb-3">
-        <div class="col-4">
-        <i class="fab fa-facebook fs-1 text-primary"></i>
+        <div className="row text-center mt-3 mb-3">
+        <div className="col-4">
+        <i className="fab fa-facebook fs-1 text-primary"></i>
         </div>
-        <div class="col-4">
-        <i class="fab fa-google-plus fs-1 text-danger"></i>
+        <div className="col-4">
+        <i className="fab fa-google-plus fs-1 text-danger"></i>
               </div>
-        <div class="col-4">
-        <i class="fab fa-instagram-square fs-1 text-warning"></i></div>
+        <div className="col-4">
+        <i className="fab fa-instagram-square fs-1 text-warning"></i></div>
         </div>
         </div>
       </div>

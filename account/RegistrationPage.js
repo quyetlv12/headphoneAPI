@@ -19,34 +19,34 @@ const RegistrationPage = {
     </head>
    
    
-        <div class="container">
-        <form class="row g-3 form-registration mb-3">
-        <div class="text-center">
-        <h1 class="sign-up-title text-white">SIGN UP</h1>
+        <div className="container">
+        <form className="row g-3 form-registration mb-3">
+        <div className="text-center">
+        <h1 className="sign-up-title text-white">SIGN UP</h1>
         </div>
         <div class='text-center '>
-        <span class="err-signup text-danger"></span>
+        <span className="err-signup text-danger"></span>
         </div>
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label text-white">Username</label>
-    <input type="email" class="form-control" id="form-registration-username" placeholder="Your name">
+  <div className="col-md-6">
+    <label for="inputEmail4" className="form-label text-white">Username</label>
+    <input type="email" className="form-control" id="form-registration-username" placeholder="Your name">
   </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label text-white">Password</label>
-    <input type="password" class="form-control" id="form-registration-password" placeholder="Your password">
+  <div className="col-md-6">
+    <label for="inputPassword4" className="form-label text-white">Password</label>
+    <input type="password" className="form-control" id="form-registration-password" placeholder="Your password">
   </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label text-white">Email</label>
-    <input type="text" class="form-control" id="form-registration-email" placeholder="your email">
+  <div className="col-12">
+    <label for="inputAddress" className="form-label text-white">Email</label>
+    <input type="text" className="form-control" id="form-registration-email" placeholder="your email">
   </div>
-  <div class="col-12">
-    <label for="inputAddress2" class="form-label text-white">Image</label>
-    <input type="file" class="form-control" id="form-registration-image">
+  <div className="col-12">
+    <label for="inputAddress2" className="form-label text-white">Image</label>
+    <input type="file" className="form-control" id="form-registration-image">
   </div>
-  <div class="col-12">
+  <div className="col-12">
   </div>
-  <div class="col-12 mb-5">
-    <button type="submit" id="btn-registration" class="btn btn-success w-100">Sign Up</button>
+  <div className="col-12 mb-5">
+    <button type="submit" id="btn-registration" className="btn btn-success w-100">Sign Up</button>
   </div>
 </form>
         </div>
