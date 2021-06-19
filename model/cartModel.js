@@ -17,6 +17,10 @@ const Cart = new Schema(
     totalPrice: {
       type: Number,
     },
+    products: {
+      type: Array,
+      default: [],
+    },
     image: {
       type: String,
     },
