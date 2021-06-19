@@ -11,7 +11,7 @@ import NewsRouter from "./routes/newsRouter";
 import productRouter from "./routes/productsRouter";
 import userRouter from "./routes/userRouter";
 import ContactRouter from "./routes/ContactRouter";
-import CartRouter from "./routes/CartRouter";
+import cartRouter from "./routes/cartRouter";
 const mongoose = require("mongoose");
 
 //start yêu cầu hình env trong file app
@@ -59,7 +59,7 @@ app.use("/api", CategoryRouter);
 app.use("/api", NewsRouter);
 app.use("/api", authRouter);
 app.use("/api", ContactRouter);
-app.use("/api", CartRouter);
+app.use("/api", cartRouter);
 app.get("/", (req, res) => {
   return res.send(
     /*html*/ `<div style="display:flex;justify-content:center">

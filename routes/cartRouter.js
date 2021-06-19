@@ -1,7 +1,7 @@
 import express from "express";
 import { showListCart, addCarts } from "../controller/cartController";
-const CartRouter = express.Router();
+const cartRouter = express.Router();
 
-CartRouter.get("/cart" , showListCart)
-CartRouter.post("/cart" , addCarts)
-module.exports = CartRouter;
+cartRouter.get("/cart" , showListCart)
+cartRouter.post("/cart" , addCarts)
+module.exports = cartRouter;
