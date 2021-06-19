@@ -12,7 +12,6 @@ import productRouter from "./routes/productsRouter";
 import userRouter from "./routes/userRouter";
 import ContactRouter from "./routes/ContactRouter";
 import CartRouter from "./routes/CartRouter";
-
 const mongoose = require("mongoose");
 
 //start yêu cầu hình env trong file app
