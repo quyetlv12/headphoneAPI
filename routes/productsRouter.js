@@ -2,7 +2,7 @@
 import express, { Router } from 'express';
 
 //start lấy phương thức trong products controller
-import {showList,addProducts,deleteProducts,productID,showDetailProduct,update,listRelated , photo} from '../controller/productController'
+import {showList,addProducts,deleteProducts,productID,showDetailProduct,update,listRelated , photo, updateComment} from '../controller/productController'
 import {requireSignin, isAdmin, isAuth} from '../controller/authController'
 import {userById} from '../controller/userController'
 
@@ -21,7 +21,7 @@ import {userById} from '../controller/userController'
  //start sửa sản phẩm
 router.put('/products/:productID/:userById',requireSignin,isAuth,isAdmin, update)
 //start thêm bình luận 
-router.put('/products/addcomment/:productID/:userById',requireSignin,isAuth, update)
+router.put('/products/addcomment/:productID/:userById',requireSignin,isAuth, updateComment)
 //start tìm sản phẩm cùng danh mục
 router.get('/products/related/:productID', listRelated)
 //start router image
