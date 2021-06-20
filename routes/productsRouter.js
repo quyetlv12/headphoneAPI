@@ -21,7 +21,7 @@ import {userById} from '../controller/userController'
  //start sửa sản phẩm
 router.put('/products/:productID/:userById',requireSignin,isAuth,isAdmin, update)
 //start thêm bình luận 
-router.put('/products/addcomment/:productID/:userById',requireSignin,isAuth, updateComment)
+router.put('/products/addcomment/:productID/:userById',update)
 //start tìm sản phẩm cùng danh mục
 router.get('/products/related/:productID', listRelated)
 //start router image
