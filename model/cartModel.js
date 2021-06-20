@@ -20,10 +20,6 @@ const Cart = new Schema(
     products: {
       type: Array,
       default: [],
-      checkOut: {
-        type : Boolean,
-        default : false,
-      },
     },
     image: {
       type: String,
@@ -31,5 +27,4 @@ const Cart = new Schema(
   },
   { timestamps: true }
 );
-
 module.exports = mongoose.model("Cart", Cart);
