@@ -20,10 +20,10 @@ const Cart = new Schema(
     products: {
       type: Array,
       default: [],
-    },
-    status: {
-      type : Boolean,
-      default : false,
+      checkOut: {
+        type : Boolean,
+        default : false,
+      },
     },
     image: {
       type: String,
