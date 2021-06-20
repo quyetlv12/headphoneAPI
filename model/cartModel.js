@@ -21,6 +21,10 @@ const Cart = new Schema(
       type: Array,
       default: [],
     },
+    status: {
+      type : Boolean,
+      default : false,
+    },
     image: {
       type: String,
     },
