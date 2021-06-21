@@ -20,8 +20,8 @@ import {userById} from '../controller/userController'
  router.delete('/products/:productID/:userById' ,requireSignin,isAuth ,isAdmin ,deleteProducts);
  //start sửa sản phẩm
 router.put('/products/:productID/:userById',requireSignin,isAuth,isAdmin, update)
-//start thêm bình luận 
-router.put('/products/addcomment/:productID/:userById',update)
+//thêm bình luận
+router.put('/products/:productID',update)
 //start tìm sản phẩm cùng danh mục
 router.get('/products/related/:productID', listRelated)
 //start router image

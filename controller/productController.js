@@ -30,7 +30,6 @@ export const productID = (req, res, next, id) => {
         error: "không tìm thấy sản phẩm",
       });
     }
-    //console.log(product)
     req.product = product;
     next();
   });
@@ -42,22 +41,6 @@ export const showDetailProduct = (req, res) => {
 };
 //start update
 export const update = (req, res) => {
-  let product = _.assignIn(req.product, req.body);
-  product.save((err, db) => {
-    if (err) {
-      console.log(err.message);
-      return res.status(400).json({
-        error: "Cập nhật sản phẩm không thành công",
-      });
-    } else {
-      res.json({
-        message: "Sửa sản phẩm thành công",
-      });
-    }
-  });
-};
-//add comment 
-export const updateComment = (req, res) => {
   let product = _.assignIn(req.product, req.body);
   product.save((err, db) => {
     if (err) {

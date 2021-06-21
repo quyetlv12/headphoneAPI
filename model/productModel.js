@@ -37,7 +37,7 @@ const Products = new Schema(
       type: Date,
       default: Date.now,
     },
-    commment: {
+    comment: {
         type : Array ,
         default : [],
     },
