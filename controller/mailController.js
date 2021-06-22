@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 export const sendMailer = (req, res, next) => {
+  console.log(req.body.mail);
   var transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -19,7 +20,12 @@ export const sendMailer = (req, res, next) => {
     to: req.body.mail,
     subject: `Xin chào ${req.body.mail} ! Bạn đã đặt hàng thành công`,
     text: "", 
-    html: "Cảm ơn bạn đã mua hàng của trang web headphone nhé !", 
+    html: /*html*/`Cảm ơn bạn đã mua hàng của trang web headphone nhé !
+    <h3>Danh sách sản phẩm bạn đã đặt</h3>
+    <ul>
+    <li>${req.body.product}</li>
+    </ul>
+    `, 
   };
   transporter.sendMail(mainOptions, function (err, info) {
     if (err) {
