@@ -15,10 +15,7 @@ export const addProducts = (req, res, next) => {
         error: "lỗi",
       });
     } else {
-      res.json({
-        message: "Thêm sản phẩm thành công",
-        db
-      });
+      res.json(db);
     }
   });
 };
