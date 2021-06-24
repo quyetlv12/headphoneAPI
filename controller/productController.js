@@ -17,6 +17,7 @@ export const addProducts = (req, res, next) => {
     } else {
       res.json({
         message: "Thêm sản phẩm thành công",
+        db
       });
     }
   });

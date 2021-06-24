@@ -10,7 +10,6 @@ export const sendMailer = (req, res, next) => {
       pass: "thanhthuy2002", //Mật khẩu tài khoản gmail vừa tạo
     },
     tls: {
-      // do not fail on invalid certs
       rejectUnauthorized: false,
     },
   });
