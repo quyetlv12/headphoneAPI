@@ -63,9 +63,7 @@ export const deleteProducts = (req, res) => {
         error: "xoá không thành công",
       });
     }
-    res.json({
-      db
-    });
+    res.json(db);
   });
 };
 
