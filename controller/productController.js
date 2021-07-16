@@ -64,8 +64,7 @@ export const deleteProducts = (req, res) => {
       });
     }
     res.json({
-      db,
-      message: `xoá thành công sản phẩm ${db.name}`,
+      db
     });
   });
 };
